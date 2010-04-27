@@ -15,7 +15,7 @@ class YesOrNo < RrdWriter
 		if !Pathname.new(file).file? then
 			command  = "create #{file} "
 			command += " --step 10 "
-			command += " --start 1211478990 "
+			command += " --start #{Time.now.to_i} "
 			command += " DS:ok:GAUGE:600:0:U "
 			command += " DS:fail:GAUGE:600:0:U "
 			command += " RRA:AVERAGE:0.5:1:25920"    # 72 hours at 1 sample per 10 secs
